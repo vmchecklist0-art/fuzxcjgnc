@@ -1,0 +1,1 @@
+import{a9 as t}from"./index-CUHsdM83.js";import{RouteList as o}from"./RouteList-BMERgFcS.js";import"./loading-DgL9wdCM.js";import"./route-colors-JNWfJzHW.js";import"./save-BBkqxfh-.js";import"./filter-DXmfx41j.js";import"./chevron-left-CgfXna3W.js";function n(){return t.jsx(o,{variant:"playground"})}export{n as CustomRoutePage};
