@@ -29,6 +29,33 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return
+
+          const modulePath = id.split("node_modules/").pop() || ""
+          if (/^(react|react-dom|scheduler|react-is)\//.test(modulePath)) {
+            return "react-vendor"
+          }
+          if (modulePath.startsWith("lucide-react/")) {
+            return "icons"
+          }
+          if (modulePath.startsWith("@radix-ui/")) {
+            return "radix-ui"
+          }
+          if (
+            modulePath.startsWith("recharts/") ||
+            modulePath.startsWith("framer-motion/") ||
+            modulePath.startsWith("@tanstack/")
+          ) {
+            return "charts-and-animation"
+          }
+          return "vendor"
+        },
+      },
+    },
   },
   server: {
     port,
