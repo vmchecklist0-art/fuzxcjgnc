@@ -1,0 +1,11 @@
+# Ignore local build artifacts and workspace metadata
+node_modules
+dist
+.vscode
+.DS_Store
+*.log
+coverage
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
